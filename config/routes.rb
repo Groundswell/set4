@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get '/about', to: 'swell_media/static#about', as: 'about'
+
 	devise_scope :user do
 		get '/login' => 'sessions#new', as: 'login'
 		get '/logout' => 'sessions#destroy', as: 'logout'
