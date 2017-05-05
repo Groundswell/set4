@@ -1,0 +1,35 @@
+#header.header-navbar{ role: :navigation }
+	.header-navbar-inner.container
+		#brand.navbar-brand
+			%a{ href: '/' }
+				Set4
+		%ul.nav.nav-pages.hidden-xs
+			%li
+				%a{ href: '/about' }
+					About
+			%li
+				%a{ href: swell_media.new_contact_path() }
+					Contact
+		%ul.nav.nav-icons
+			%li
+				%a.btn-icon{"data-toggle" => ".header-navbar-inner", "data-toggle-class" => "search-toggled-in", :href => "#"}
+					%span.search-toggled-out-icon.fa.fa-search
+					%span.search-toggled-in-icon.fa.fa-times
+		.search-wrapper.js-stoppropagation
+			.search-wrapper-inner
+				= form_tag swell_media.articles_path(), method: :get do
+					%input{:placeholder => "search ... ", name: :q, :type => "text", :value => ""}/
+					%button.btn-icon{:type => "submit"}
+						%span.fa.fa-search
+		%ul.nav.navbar-nav
+			%li
+				%a{ href: '/blog' }
+					Articles
+			%li
+				%a{ href: '#', data: { toggle: :li } }
+					Categories
+				.subnav-wrapper
+					%ul.subnav
+						- SwellMedia::Category.all.where.not(slug: :workouts).each do |cat|
+							%li
+								= link_to cat, swell_media.articles_path(category: cat.slug)
