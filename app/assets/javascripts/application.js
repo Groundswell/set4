@@ -11,4 +11,5 @@
 // about supported directives.
 
 //= require ./bootstrap/bootstrap
+//= require vendor_scripts
 //= require_self
