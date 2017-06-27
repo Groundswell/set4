@@ -6,7 +6,7 @@
 		%ul.nav.nav-pages.hidden-xs
 			%li
 				%a{ href: '/about' }
-					About
+					Abfout
 			%li
 				%a{ href: swell_media.new_contact_path() }
 					Contact
